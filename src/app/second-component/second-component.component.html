@@ -1,0 +1,31 @@
+<div class="signup">
+  <p>Sign In</p>
+  <p>Welcome Back To Acme</p>
+
+  <form [formGroup]="formData">
+    <label for="">Enter your email:</label>
+    <input
+      type="email"
+      placeholder="Enter your email"
+      formControlName="email"
+    />
+    <label for="">Enter your password:</label>
+    <input
+      type="password"
+      placeholder="Enter your password"
+      formControlName="password"
+    />
+    <label for="">Confirm password:</label>
+    <input
+      type="password"
+      placeholder="Confirm password"
+      formControlName="confirmpassword"
+    />
+    <button (click)="signup()">SignUp</button>
+  </form>
+
+  <div class="alreadyaccount">
+    <p>Already have an account?</p>
+    <a [routerLink]="['/signin']">SignIn</a>
+  </div>
+</div>
