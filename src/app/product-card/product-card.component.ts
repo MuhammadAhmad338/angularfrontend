@@ -1,5 +1,5 @@
 import { Component, Input, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-card',
@@ -9,12 +9,14 @@ import { Router } from '@angular/router';
 
 export class ProductCardComponent {
   @Input() product: any;
- 
+  routes: ActivatedRoute = inject(ActivatedRoute);
+  name: string = "";
+  
   constructor(private router: Router) {
-
+     this.name =  this.routes.snapshot.params["id"];
   }
 
   navigateToSingleProduct(): void {
-    this.router.navigate([`product/${this.product.name}`]);
+    this.router.navigate([`product/${this.name}`]);
   }
 }

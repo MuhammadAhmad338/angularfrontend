@@ -6,12 +6,15 @@
   <hr />
 
   <div class="empty-cart" *ngIf="cartProducts.length === 0">
-    <button (click)="closeShoppingCart()">Your Cart is Empty</button>
+    <img src="../../assets/empty-cart.png" alt="" height="150" width="150"> 
+    <button (click)="closeShoppingCart()" [routerLink]="['/dashboard']">Continue Shopping</button>
   </div>
 
-  <div *ngIf="cartProducts.length">
-    <p>Products are Available</p>
+  <div class="cart-products" *ngFor="let product of cartProducts">
+    <img src="{{product.image}}" alt="" height="70" width="70">
+    <div class="product-name-price">
+      <p>{{product.name}}</p>
+      <p>{{product.price}}</p>
+    </div>
   </div>
-
-  
 </div>

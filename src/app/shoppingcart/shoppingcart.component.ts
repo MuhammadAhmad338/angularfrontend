@@ -9,22 +9,19 @@ import { Product } from '../product';
 
 export class ShoppingcartComponent implements OnInit {
   
-  cartProducts: Product[] = [];
+   public cartProducts: any = [];
   @Input() isShoppingCartOpen: boolean = false;
   @Output() isChangeOpen: EventEmitter<boolean> = new EventEmitter();
  
   constructor(private cartService: CartServiceService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.cartService.getCartProducts().subscribe((res: any) => this.cartProducts = res);
+  }
 
   closeShoppingCart(): void {
     this.isShoppingCartOpen = !this.isShoppingCartOpen;
     this.isChangeOpen.emit(this.isShoppingCartOpen);
-  }
-
-  getItems(): void {
-    this.cartProducts = this.cartService.getCartProducts();
-    console.log(this.cartProducts);
   }
 
 }
