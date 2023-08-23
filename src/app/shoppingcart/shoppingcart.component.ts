@@ -24,4 +24,12 @@ export class ShoppingcartComponent implements OnInit {
     this.isChangeOpen.emit(this.isShoppingCartOpen);
   }
 
+  clearthecart(): void {
+    this.cartService.clearThecart();
+  }
+
+  removeProductFromCart(product: Product) { 
+     this.cartService.removeFromCart(product);
+  }
+
 }

@@ -32,7 +32,7 @@
   gap: 7px;
 }
 
-button {
+.continue-shopping {
   border: 1px solid black;
   outline: none;
   font-weight: bold;
@@ -58,3 +58,21 @@ button {
 }
 
 
+.footer {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  width: 70vw;
+  margin-top: auto;
+}
+
+.footer-button {
+  border: 1px solid black;
+  padding: 7px 0px;
+  background-color: white;
+  color: black;
+  outline: none;
+  font-size: 16px;
+  text-transform: uppercase;  
+}

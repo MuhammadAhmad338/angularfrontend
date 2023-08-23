@@ -32,6 +32,11 @@ export class CartServiceService {
     }
   }
 
+  clearThecart(): void {
+    this.cartProductList = [];
+    this.productList.next(this.cartProductList);
+  }
+
   getCartProducts(): any {
     return this.productList.asObservable();
   }

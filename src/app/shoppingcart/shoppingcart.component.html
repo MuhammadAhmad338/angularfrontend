@@ -6,15 +6,26 @@
   <hr />
 
   <div class="empty-cart" *ngIf="cartProducts.length === 0">
-    <img src="../../assets/empty-cart.png" alt="" height="150" width="150"> 
-    <button (click)="closeShoppingCart()" [routerLink]="['/dashboard']">Continue Shopping</button>
+    <img src="../../assets/empty-cart.png" alt="" height="150" width="150" />
+    <button class="continue-shopping" (click)="closeShoppingCart()" [routerLink]="['/dashboard']">
+      Continue Shopping
+    </button>
   </div>
 
-  <div class="cart-products" *ngFor="let product of cartProducts">
-    <img src="{{product.image}}" alt="" height="70" width="70">
-    <div class="product-name-price">
-      <p>{{product.name}}</p>
-      <p>{{product.price}}</p>
+  <div  *ngFor="let product of cartProducts">
+    <div class="cart-products">
+      <img src="{{ product.image }}" alt="" height="70" width="70" />
+      
+      <div class="product-name-price">
+        <p>{{ product.name }}</p>
+        <p>{{ product.price }}</p>
+      </div>
+      <mat-icon (click)="removeProductFromCart(product)">cancel</mat-icon>
+    </div>
+    <div class="footer">
+      <button class="footer-button">Checkout</button>
+      <button (click)="clearthecart()" class="footer-button">Clear the cart</button>
     </div>
   </div>
+
 </div>
