@@ -1,0 +1,13 @@
+<header>
+  <mat-icon (click)="toggleDrawer()"> menu </mat-icon>
+  <ul>
+     <a [routerLink]="['/home']"><li>Home</li></a>
+     <a [routerLink]="['/about']"><li>About</li></a>
+     <a [routerLink]="['/services']"><li>Services</li></a>
+     <a [routerLink]="['/contact']"><li>Contact</li></a>
+  </ul>
+  <h3>Angular</h3>
+  <mat-icon (click)="cart()"> shopping_cart_checkout </mat-icon>
+</header>
+<app-sidedrawer [isOpen]="isDrawerOpen"> </app-sidedrawer>
+<app-shoppingcart [isShoppingCartOpen]="isShoppingCartOpen" ></app-shoppingcart>

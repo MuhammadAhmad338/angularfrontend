@@ -9,24 +9,40 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 
 export class FirstcomponentComponent {
- 
-  signinurl: string = 'http://localhost:8080/signin';
+
+  userNotExists: any = '';
+  pleaseEnterSomething: string = '';
+  public username: string = "";
+  public password: string = "";
+  signinurl: string = 'https://webappoo4.onrender.com/signin';
   constructor(private http: HttpClient) {}
   formData = new FormGroup({
     email: new FormControl(),
     password: new FormControl()
-  }); 
+  });
+
+  onSubmit() {
+    console.log(`Username: ${this.username}, Password: ${this.password}`);
+  }
 
    signin(): void {
     const data = {email: this.formData.value.email, password: this.formData.value.password};
-    if (data) {
+    if (data.email !== null && data.password !== null) {
+    console.log(data);
+      if (data) {
     this.http.post(this.signinurl, data).subscribe(
         data => console.log(data),
         error => console.log(error)
       );
-    } else {
-      console.log("Enter the data");  
     }
+    this.clearForm();
+  } else {
+    this.pleaseEnterSomething = "Please fill all the fields!";
+  }
  }
- 
+
+ clearForm(): void {
+  this.formData.reset();
+ }
+
 }

@@ -1,0 +1,17 @@
+<div class="cart" [class.active]="isShoppingCartOpen">
+  <div class="cart-container">
+    <p>Shopping Cart</p>
+    <mat-icon (click)="closeShoppingCart()"> cancel </mat-icon>
+  </div>
+  <hr />
+
+  <div class="empty-cart" *ngIf="cartProducts.length === 0">
+    <button (click)="closeShoppingCart()">Your Cart is Empty</button>
+  </div>
+
+  <div *ngIf="cartProducts.length">
+    <p>Products are Available</p>
+  </div>
+
+  
+</div>

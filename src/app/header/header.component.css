@@ -1,0 +1,44 @@
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10px;
+    background-color: papayawhip;
+    outline: none;
+    text-transform: uppercase;
+}
+
+mat-icon {
+    font-size: 25px;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    list-style-type: none;
+    cursor: pointer;
+}
+
+h3 {
+    display: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+mat-icon {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 200px) and (max-width: 800px) {
+    ul {
+        display: none;
+    }
+    h3 {
+        display: block;
+    }
+}

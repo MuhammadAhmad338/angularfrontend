@@ -1,7 +1,9 @@
 <div class="signin">
+ <div class="sigin-container">
   <p>Sign In</p>
   <p>Welcome Back To Acme</p>
   <form [formGroup]="formData">
+    <p class="fillf">{{pleaseEnterSomething}}</p>
     <label for="For email">Enter your email:</label>
     <input
       type="email"
@@ -16,8 +18,10 @@
     />
     <button (click)="signin()">SignIn</button>
   </form>
+  <p class="usernotfound">{{userNotExists.error}}</p>
   <div class="dontaccount">
     <p>Don't have an account?</p>
     <a [routerLink]="['/signup']">SignUp</a>
   </div>
+ </div>
 </div>

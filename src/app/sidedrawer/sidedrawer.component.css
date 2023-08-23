@@ -1,0 +1,49 @@
+.sidedrawer {
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: papayawhip;
+    color: white;
+    transition: width 0.3s ease;
+    overflow-y: auto;
+    z-index: 1;
+}
+
+.sidedrawer.active {
+    width: 70%;
+}
+
+h2 {
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    padding: 12px;
+}
+
+li {
+    list-style-type: none;
+    padding: 12px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.close {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    color: black;
+}
+
+mat-icon {
+    font-size: 22px;
+    cursor: pointer;
+    color: black;
+    margin-right: 12px;
+}
