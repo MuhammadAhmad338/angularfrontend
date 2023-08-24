@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, inject, EventEmitter } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../product';
@@ -32,12 +32,11 @@ export class SingleProductComponent implements OnInit {
     data.forEach(mydata => this.singleProduct = mydata);    
   }
 
-  addProduct(product: Product) {
+  addProduct(product: Product): void {
     this.cartService.addProduct(product);
-    console.log(this.cartService.cartProductList);
   }
 
-  removeFromCart(product: Product) {
+  removeFromCart(product: Product): void {
     this.cartService.removeFromCart(product);
   }
   
