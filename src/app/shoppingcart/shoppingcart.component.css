@@ -4,7 +4,7 @@
   top: 0;
   height: 100%;
   position: fixed;
-  background-color: papayawhip;
+  background-color: white;
   color: black;
   transition: width 0.3s ease;
   overflow-y: auto;
@@ -51,12 +51,11 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 5px;  
-  background-color: white;
+  background-color: papayawhip;
   outline: none;
   padding: 5px 5px; 
   margin: 10px 10px;
 }
-
 
 .footer {
   display: flex;
