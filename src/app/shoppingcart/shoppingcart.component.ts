@@ -9,7 +9,7 @@ import { Product } from '../product';
 
 export class ShoppingcartComponent implements OnInit {
   
-   public cartProducts: any = [];
+   public cartProducts: Product[] = [];
   @Input() isShoppingCartOpen: boolean = false;
   @Output() isChangeOpen: EventEmitter<boolean> = new EventEmitter();
  

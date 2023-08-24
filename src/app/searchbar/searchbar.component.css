@@ -24,6 +24,16 @@ button {
   background-color: papayawhip;
 }
 
+.search-product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+
+
+
 @media screen and (min-width: 200px) and (max-width: 800px) {
   input {
     border: 1px solid black;
@@ -31,5 +41,17 @@ button {
     padding: 9px 5px;
     width: 70%;
     font-size: 15px;
+  }
+  .search-product-container {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    width: 87%;
+    gap: 5px;
+    padding: 5px 10px;
+    background-color: papayawhip;
+  }
+  .search-product-container:hover {
+    background-color: lightgray;
   }
 }

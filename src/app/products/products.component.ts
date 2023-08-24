@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
 import { HttpClient } from '@angular/common/http';
+import { CartServiceService } from '../cart-service.service';
 
 @Component({
   selector: 'app-products',
@@ -10,17 +11,11 @@ import { HttpClient } from '@angular/common/http';
 export class ProductsComponent implements OnInit {
   
   products: Product[] = [];
-  url: string = 'https://webappoo4.onrender.com/products';
   
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private cartService: CartServiceService) {}
 
   ngOnInit(): void { 
-    this.getProducts();
+    this.cartService.getProductsFromInternet().subscribe((res: any) => this.products = res);
    }
-
-  async getProducts(): Promise<void> {
-    const data = this.http.get<Product[]>(this.url);
-    data.forEach((mydata) => this.products = mydata);
-  }
 
 }
