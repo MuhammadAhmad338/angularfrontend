@@ -22,6 +22,10 @@ ul {
     cursor: pointer;
 }
 
+li {
+    font-weight: bold;
+}
+
 h3 {
     display: none;
 }
