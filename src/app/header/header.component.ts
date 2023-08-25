@@ -12,7 +12,6 @@ export class HeaderComponent {
   toggleDrawer() {
     this.isDrawerOpen = !this.isDrawerOpen;
   }
-
   cart(): void {
     this.isShoppingCartOpen = !this.isShoppingCartOpen;
   }
