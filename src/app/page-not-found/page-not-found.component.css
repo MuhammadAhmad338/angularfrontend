@@ -6,3 +6,9 @@
     box-sizing: border-box;
     font-family: 'Nunito', sans-serif;
 }
+
+.page-not-found {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
