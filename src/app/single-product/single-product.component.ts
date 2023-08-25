@@ -12,14 +12,14 @@ import { CartServiceService } from '../cart-service.service';
 
 export class SingleProductComponent implements OnInit {
   
-  singleProduct: any = {};
+  singleProduct: any;
   routes: ActivatedRoute = inject(ActivatedRoute);
   url: string = "https://webappoo4.onrender.com/products";
-  name: string= "";
+  id: number;
   cartProductList: Product[] = [];
 
   constructor(private http: HttpClient, private cartService: CartServiceService) {
-    this.name = this.routes.snapshot.params["id"];
+    this.id = this.routes.snapshot.params["id"];
   }
 
   ngOnInit(): void {
@@ -28,8 +28,9 @@ export class SingleProductComponent implements OnInit {
   
   //Here we are filtering the products on the basis of their name that we are passing in the route
   getSingleProduct(): void {
-    const data = this.http.get(`${this.url}/${this.name}`);
-    data.forEach(mydata => this.singleProduct = mydata);    
+    console.log(`Got Data ${this.id}`);
+    const data = this.http.get(`${this.url}/${this.id}`);
+    data.forEach((mydata: any) => this.singleProduct = mydata);    
   }
 
   addProduct(product: Product): void {

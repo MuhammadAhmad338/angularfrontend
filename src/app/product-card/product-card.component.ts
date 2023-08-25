@@ -10,13 +10,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ProductCardComponent {
   @Input() product: any;
   routes: ActivatedRoute = inject(ActivatedRoute);
-  name: string = "";
+  id: number;
   
   constructor(private router: Router) {
-     this.name =  this.routes.snapshot.params["id"];
+    console.log(this.routes.snapshot.params["id"]);
+     this.id =  this.routes.snapshot.params["id"];
+
   }
 
   navigateToSingleProduct(): void {
-    this.router.navigate([`product/${this.name}`]);
+    this.router.navigate([`product/${this.id}`]);
   }
 }
