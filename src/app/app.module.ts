@@ -24,7 +24,6 @@ import { ContactComponent } from './contact/contact.component';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import { FooterComponent } from './footer/footer.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
-
 @NgModule({
   declarations: [
     AppComponent,

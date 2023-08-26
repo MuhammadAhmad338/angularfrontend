@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Product } from './product';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,11 +11,14 @@ export class CartServiceService {
 
   cartProductList: Product[] = [];
   wishlistProducts: Product[] = [];
+  signupUrl: string = 'https://webappoo4.onrender.com/signup';
+  signinUrl: string = 'https://webappoo4.onrender.com/signin';
   url: string = 'https://webappoo4.onrender.com/products';
   public products = new BehaviorSubject<any>([]);
   public productList = new BehaviorSubject<any>([]);
   public wishlist = new BehaviorSubject<any>([]);
-  constructor(private http: HttpClient) {}
+  public isSignedIn = new BehaviorSubject<boolean>(false);
+  constructor(private http: HttpClient, private route: Router) {}
 
   addProduct(product: Product): void {
     const productExistsinCart = this.cartProductList.find(({id}) => id === product.id);
@@ -32,7 +36,7 @@ export class CartServiceService {
     if (productExistsinCart) {
       this.cartProductList = this.cartProductList.filter(({id}) => id !== product.id);
       this.productList.next(this.cartProductList);
-      console.log("Product is removed!");
+      console.log("Your Product is removed!");
     } else {
       console.log("No Product Exists!");
     }
@@ -58,6 +62,20 @@ export class CartServiceService {
     } else {
       console.log(`No Product Exists!`);
     }
+  }
+
+  signup(data: any): Observable<any> {
+    return this.http.post(this.signupUrl, data);
+  }
+
+  signin(data: any): Observable<any> {
+    return this.http.post(this.signinUrl, data);
+  }
+
+  signout(): void {
+    localStorage.removeItem('token');
+    this.isSignedIn.next(false);
+    this.route.navigate(['signin']);
   }
 
   clearThecart(): void {

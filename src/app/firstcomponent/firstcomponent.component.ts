@@ -1,48 +1,59 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup } from '@angular/forms';
+import { CartServiceService } from '../cart-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-firstcomponent',
   templateUrl: './firstcomponent.component.html',
-  styleUrls: ['./firstcomponent.component.css']
+  styleUrls: ['./firstcomponent.component.css'],
 })
-
 export class FirstcomponentComponent {
-
-  userNotExists: any = '';
+  userNotExists: any;
   pleaseEnterSomething: string = '';
-  public username: string = "";
-  public password: string = "";
+  public username: string = '';
+  public password: string = '';
   signinurl: string = 'https://webappoo4.onrender.com/signin';
-  constructor(private http: HttpClient) {}
+  constructor(
+    private route: Router,
+    private cartService: CartServiceService
+  ) {}
   formData = new FormGroup({
     email: new FormControl(),
-    password: new FormControl()
+    password: new FormControl(),
   });
 
   onSubmit() {
     console.log(`Username: ${this.username}, Password: ${this.password}`);
   }
 
-   signin(): void {
-    const data = {email: this.formData.value.email, password: this.formData.value.password};
+  async signin(): Promise<void> {
+    const data = {
+      email: this.formData.value.email,
+      password: this.formData.value.password,
+    };
     if (data.email !== null && data.password !== null) {
-    console.log(data);
       if (data) {
-    this.http.post(this.signinurl, data).subscribe(
-        data => console.log(data),
-        error => console.log(error)
-      );
+        this.cartService
+          .signin(data)
+          .subscribe((response) => {
+            this.userNotExists = response.token;
+            localStorage.setItem('token', this.userNotExists);
+            this.clearForm();
+             this.cartService.isSignedIn.next(true);
+            setTimeout(() => {
+              this.route.navigate(['dashboard']);
+            }, 1000);
+            this.cartService.isSignedIn.next(true);
+          });
+         
+      }
+    } else {
+      this.pleaseEnterSomething = 'Please fill all the fields!';
     }
-    this.clearForm();
-  } else {
-    this.pleaseEnterSomething = "Please fill all the fields!";
   }
- }
 
- clearForm(): void {
-  this.formData.reset();
- }
-
+  clearForm(): void {
+    this.formData.reset();
+  }
 }
