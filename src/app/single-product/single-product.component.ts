@@ -28,7 +28,6 @@ export class SingleProductComponent implements OnInit {
   
   //Here we are filtering the products on the basis of their name that we are passing in the route
   getSingleProduct(): void {
-    console.log(`Got Data ${this.id}`);
     const data = this.http.get(`${this.url}/${this.id}`);
     data.forEach((mydata: any) => this.singleProduct = mydata);    
   }

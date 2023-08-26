@@ -3,7 +3,7 @@
     <button>Search</button>
 </form>
 <div class="search-product" *ngIf="searchedProducts.length">
-    <div class="search-product-container" [routerLink]="['/product', product.name]" *ngFor="let product of searchedProducts" >
+    <div class="search-product-container" [routerLink]="['/product', product.id]" *ngFor="let product of searchedProducts" >
         <img src="{{product.image}}" alt="" height="30" width="30">
         <p>{{product.name}}</p>
     </div>
