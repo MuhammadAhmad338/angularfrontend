@@ -69,10 +69,12 @@
   bottom: 0;
   width: 70vw;
   margin-top: auto;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .footer-button {
   border: 1px solid black;
+  border-bottom: none;
   padding: 7px 0px;
   background-color: papayawhip;
   color: black;

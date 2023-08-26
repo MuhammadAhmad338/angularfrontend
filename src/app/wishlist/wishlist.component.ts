@@ -11,11 +11,13 @@ import { Product } from '../product';
 export class WishlistComponent implements OnInit{
   public wishlistProducts: Product[] = [];
   constructor(private cartService: CartServiceService) {}
+  
   ngOnInit(): void {
    this.cartService.wishlist.subscribe((result) => this.wishlistProducts = result);
- }
+  }
 
- removeProductFromWishlist(product: Product) {
+  removeProductFromWishlist(product: Product) {
     this.cartService.removeFromWishlist(product);
- }
+  }
+  
 }
