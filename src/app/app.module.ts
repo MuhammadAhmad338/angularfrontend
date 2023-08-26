@@ -23,6 +23,7 @@ import { ServicesComponent } from './services/services.component';
 import { ContactComponent } from './contact/contact.component';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import { FooterComponent } from './footer/footer.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { FooterComponent } from './footer/footer.component';
     ContactComponent,
     ShoppingcartComponent,
     FooterComponent,
+    WishlistComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +57,7 @@ import { FooterComponent } from './footer/footer.component';
       { path: 'about', component: AboutComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'services', component: ServicesComponent },
+      { path: 'wishlist', component: WishlistComponent },
       { path: '', redirectTo: 'signin', pathMatch: 'full' },
       { path: '**', component: PageNotFoundComponent },
     ]),

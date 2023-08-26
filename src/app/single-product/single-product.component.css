@@ -72,3 +72,12 @@ img {
     font-weight: bold;
     font-size: 16px;
 }
+
+.wishlist-product {
+    display: flex;
+    flex-direction: row;
+    padding: 5px 7px;
+    outline: none;
+    border: 1px solid black;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}

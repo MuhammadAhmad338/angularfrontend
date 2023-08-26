@@ -1,0 +1,16 @@
+<div class="noproduct-wishlist" *ngIf="wishlistProducts.length === 0">
+    <img src="../../assets/add-to-favorites.png" alt="" height="150" width="150"> 
+    <h3>No Products in Wishlist</h3>
+</div>
+<div class="wishlist-products" *ngIf="wishlistProducts.length !== 0">
+    <h3>Products Wishlist</h3>
+    <div *ngFor="let product of wishlistProducts" class="wishlist-product">
+            <div class="product-name-price">
+            <img src="{{ product.image }}" alt="" height="70" width="70" />
+              <p>{{ product.name }}</p>
+              <p>{{ product.price }}</p>
+            </div>
+            <mat-icon (click)="removeProductFromWishlist(product)">cancel</mat-icon>
+    </div>
+ </div>
+

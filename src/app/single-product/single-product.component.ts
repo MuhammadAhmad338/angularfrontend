@@ -39,5 +39,9 @@ export class SingleProductComponent implements OnInit {
   removeFromCart(product: Product): void {
     this.cartService.removeFromCart(product);
   }
+
+  addProductTowishlist(product: Product): void {
+    this.cartService.addToWishlist(product);
+  }
   
 }
