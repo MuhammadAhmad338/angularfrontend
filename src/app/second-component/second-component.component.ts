@@ -18,7 +18,7 @@ export class SecondComponentComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  async signup(): Promise<void> {
+  signup(): void {
     const data = {
       email: this.formData.value.email,
       password: this.formData.value.password,
