@@ -15,7 +15,7 @@ export class CartServiceService {
   constructor(private http: HttpClient) {}
 
   addProduct(product: Product): void {
-    const productExistsinCart = this.cartProductList.find(({name}) => name === product.name);
+    const productExistsinCart = this.cartProductList.find(({id}) => id === product.id);
     if (!productExistsinCart) {
       this.cartProductList.push(product);
       this.productList.next(this.cartProductList);
@@ -26,9 +26,9 @@ export class CartServiceService {
   }
 
   removeFromCart(product: Product): void {
-    const productExistsinCart = this.cartProductList.find(({name}) => name === product.name);
+    const productExistsinCart = this.cartProductList.find(({id}) => id === product.id);
     if (productExistsinCart) {
-      this.cartProductList = this.cartProductList.filter(({name}) => name !== product.name);
+      this.cartProductList = this.cartProductList.filter(({id}) => id !== product.id);
       this.productList.next(this.cartProductList);
       console.log("Product is removed!");
     } else {
