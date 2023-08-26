@@ -69,7 +69,7 @@ export class CartServiceService {
     return this.productList.asObservable();
   }
 
-  getProductsFromInternet() {
+  getProductsFromInternet(): any {
     const data = this.http.get(this.url);
     data.forEach((mydata: any) => this.products.next(mydata));
     return this.products.asObservable();

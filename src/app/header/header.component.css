@@ -13,7 +13,7 @@ header {
 .header-buttons {
     display: flex;
     flex-direction: row;
-    gap: 7px;
+    gap: 12px;
 }
 
 mat-icon {
